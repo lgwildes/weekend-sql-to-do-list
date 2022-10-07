@@ -26,6 +26,21 @@ router.post('/', (req, res) => {
         })
 })
 
+router.get('/', (req,res) => {
+    console.log('in /list GET');
+
+    pool.query(`
+    SELECT * FROM "list"
+    ORDER BY "id" ASC;`
+    )
+    .then((dataBaseResult) => {
+        res.send(dataBaseResult.rows);
+    })
+    .catch((err) => {
+        console.log('in /list router GET error', err);
+        res.sendStatus(500);
+    })
+})
 
 
 

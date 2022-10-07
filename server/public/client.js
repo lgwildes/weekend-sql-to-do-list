@@ -1,4 +1,5 @@
 
+
 console.log('in client.js')
 
 $( document ).ready(function(){
@@ -30,4 +31,21 @@ function addTask() {
 
 function getList(){
     console.log('Here is the to do list:')
+
+    $.ajax({
+        method:'GET',
+        url: '/list'
+    })
+    .then((response) =>{
+        console.log('response from database is:', response);
+
+        for(chore of response){
+            $('#listTable').append(`
+            <tr>
+                <td>${chore.task}</td>
+            </tr>
+        `)
+        }
+        
+    })
 }
