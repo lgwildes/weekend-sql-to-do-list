@@ -28,6 +28,7 @@ function addTask() {
     })
     .then((response) => {
         console.log(response);
+        $('#taskInput').val('');
         getList();
     })
     .catch((err) => {
@@ -47,18 +48,32 @@ function getList() {
         $('#listTable').empty(); //empty before appending updated data
         //loop through all tasks in database and append with buttons
         for(chore of response){
-            
+            if(chore.completed===true){
+                $('#listTable').append(`
+            <tr class = "completed" >
+                <td>${chore.task}</td>
+                <td>
+                    <p data-id=${chore.id} >Completed 🎉</p>
+                </td>
+                <td>
+                    <button class="btnComplete" id="deleteBtn" data-id=${chore.id} >Delete ❌</button>
+                </td>
+            </tr>`)
+            }
+
+            else {
             $('#listTable').append(`
             <tr>
                 <td>${chore.task}</td>
                 <td>
-                    <button class="btn" id="completeBtn" data-id=${chore.id} >Complete</button>
+                    <button class="btn" id="completeBtn" data-id=${chore.id} >Complete ✅</button>
                 </td>
                 <td>
-                    <button class="btn" id="deleteBtn" data-id=${chore.id} >Delete</button>
+                    <button class="btn" id="deleteBtn" data-id=${chore.id} >Delete ❌</button>
                 </td>
             </tr>
-        `)
+            `)
+            }
         }
         
     })

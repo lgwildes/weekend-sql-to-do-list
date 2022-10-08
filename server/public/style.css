@@ -1,3 +1,63 @@
 body {
     background-color: lightpink;
+    margin: 3em;
+}
+
+h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: 4em;
+}
+
+table {
+    width: 40em;
+    margin-top: 2em;
+
+}
+thead {
+    background-color: rgb(252, 136, 153);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+
+}
+
+tbody {
+    background-color: white;
+    row-gap: none;
+    font-family: monospace;
+   
+}
+
+tr{
+    height: 3.5em;
+}
+
+td {
+    padding-left: 1em;
+}
+
+
+button {
+    border: none;
+    background-color: white;
+    font-family: monospace;
+
+    
+}
+
+#addBtn {
+    box-shadow: .1em .1em .5em .1em rgb(252, 136, 153);
+}
+.btn {
+    background-color: white;
+    box-shadow: .1em .1em .5em .1em lightgray
+}
+
+.btnComplete {
+    background-color: rgb(196, 241, 191);
+    box-shadow: .1em .1em .5em .1em rgb(138, 168, 135);
+}
+
+.completed {
+    background-color: rgb(196, 241, 191);
 }
